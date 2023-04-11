@@ -1,24 +1,17 @@
 //Player is able to move along the map using the arrow keys/ WASD
-let player =document.querySelector('#character');
-let moveBy = 25;
+const player =document.querySelector('#character');
+let modifier = 25;
 
-window.addEventListener("keydown", function(e){
-  switch(e.key){
-    case 'ArrowLeft':
-        player.style.left = parseInt(player.style.left) + -moveBy +'px';
+window.addEventListener('keydown', (event) => {
+    const { style } = player;
+    switch(event.key) {
 
-    case 'ArrowRight':
-        player.style.left = parseInt(player.style.left) + moveBy +'px';
-
-    case 'ArrowUp':
-        player.style.top = parseInt(player.style.top) + -moveBy +'px';
-
-    case 'ArrowDown':
-        player.style.top = parseInt(player.style.top) + moveBy +'px';
-
+      case 'ArrowUp':style.top = `${parseInt(style.top) - modifier}px`; break;
+      case 'ArrowDown': style.top = `${parseInt(style.top) + modifier}px`; break;
+      case 'ArrowLeft': style.left = `${parseInt(style.left) - modifier}px`; break;
+      case 'ArrowRight': style.left = `${parseInt(style.left) + modifier}px`; break;
     }
-})
-
+  });
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
 

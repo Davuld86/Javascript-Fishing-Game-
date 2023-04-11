@@ -2,12 +2,16 @@
     padding: 0;
     margin: 0;
     overflow-x: hidden;
+    caret-color: transparent;
+}
+*:focus{
+    outline:none;
 }
 .game{
     width: 500px;
     height: 500px;
     background-color: forestgreen;
-    border: 2px solid black;
+    border: 5px solid black;
     margin: auto;
     overflow: hidden;
 }
@@ -16,8 +20,6 @@
     height: 50px;
     background-color: red;
     position:absolute;
-    top:50px;
-    left:300px;
 }
 
 #water{
@@ -27,7 +29,7 @@
     border: 2px solid blue;
    position: absolute;
    top:150px;
-   left: 250px;
+   left:675px;
 }
 #bridge{
     width: 150px;
@@ -36,12 +38,12 @@
     border: 1px solid rgb(96, 56, 13);
     position: absolute;
     top:150px;
-    left: 375px;
+    left: 775px;
 }
 #inventory{
     position: absolute;
     top: 10px;
-    left:570px;
+    left:1000px;
 }
 
 #cooler{
