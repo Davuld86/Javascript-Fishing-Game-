@@ -14,12 +14,17 @@
     border: 5px solid black;
     margin: auto;
     overflow: hidden;
+    z-index: 0;
 }
 #character{
-    width: 20px;
+    width: 50px;
     height: 50px;
+    outline: 1px solid black;
     background-color: red;
     position:absolute;
+    background-position-x: 85px;
+
+    z-index: 4;
 }
 
 #water{
@@ -30,6 +35,7 @@
    position: absolute;
    top:150px;
    left:675px;
+   z-index: 1;
 }
 #bridge{
     width: 150px;
@@ -39,11 +45,13 @@
     position: absolute;
     top:150px;
     left: 775px;
+    z-index: 2;
 }
 #inventory{
     position: absolute;
     top: 10px;
     left:1000px;
+    z-index: 5;
 }
 
 #cooler{
