@@ -3,9 +3,6 @@
  const water = getComputedStyle(document.querySelector('#water'));
  let playerPos= {playerX:parseInt(player.style.left)  ,playerY:parseInt(player.style.top), playerWidth:50, playerHeight:50}
 
-
-
-
 console.log(getComputedStyle(document.querySelector(".game")).top)
 console.log(getComputedStyle(document.querySelector(".game")).left)
 
@@ -125,9 +122,6 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
     }
   }
 
-
-
-
   function onBridge(){
    updatePlayer();
 
@@ -142,12 +136,9 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
     &&(playerPos.playerY > bridge.yt && playerPos.playerY +playerPos.playerHeight < bridge.yb)
     )
   {
-    bridgeColor.style.backgroundColor = 'red';
     return true;
-
   }
   else{
-    bridgeColor.style.backgroundColor = 'orange';
     return false;
   }
 }
