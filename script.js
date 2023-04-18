@@ -194,6 +194,9 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
+function capitalize(word){
+  return word.charAt(0).toUpperCase() + word.substring(1)
+}
 
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
@@ -202,7 +205,7 @@ fetch('https://pokeapi.co/api/v2/type/water/')
 .then((response)=> response.json())
 .then((data)=> {
   caughtPkmn= data.pokemon[Math.floor(Math.random() * 185) + 1].pokemon.name
-  alert(`You caught a ${caughtPkmn}!`)
+  alert(`You caught a ${capitalize(caughtPkmn)}!`)
 })
 
 }
