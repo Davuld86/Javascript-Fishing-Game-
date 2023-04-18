@@ -14,7 +14,20 @@ window.addEventListener('keydown', (event) => {
     onBridge();
     switch(event.key) {
 
-      case 'ArrowUp' :style.top = `${parseInt(style.top) - modifier}px`; break;
+      case 'ArrowUp':
+        if(waterCol()==false && isInsideBox()==true){
+          style.top = `${parseInt(style.top) - modifier}px`;
+        }
+        else if(waterCol() == true && onBridge() == true){
+          style.top = `${parseInt(style.top) - modifier}px`;
+        }
+        else{
+          style.top = `${parseInt(style.top) + modifier}px`;
+          waterCol();
+          onBridge();
+        }
+        break;
+
 
       case 'w':
         if(waterCol()==false && isInsideBox()==true){
@@ -30,7 +43,22 @@ window.addEventListener('keydown', (event) => {
         }
         break;
 
-      case 'ArrowDown': style.top = `${parseInt(style.top) + modifier}px`; break;
+        case 'ArrowDown':
+          if(waterCol()==false && isInsideBox()==true){
+          style.top = `${parseInt(style.top) + modifier}px`;
+          }
+
+          else if(waterCol() == true && onBridge() == true){
+            style.top = `${parseInt(style.top) + modifier}px`;
+          }
+          else{
+            style.top = `${parseInt(style.top) - modifier}px`;
+            waterCol();
+            onBridge();
+          }
+          break;
+
+
       case 's':
       if(waterCol()==false && isInsideBox()==true){
       style.top = `${parseInt(style.top) + modifier}px`;
@@ -46,7 +74,22 @@ window.addEventListener('keydown', (event) => {
       }
       break;
 
-      case 'ArrowLeft': style.left = `${parseInt(style.left) - modifier}px`; break;
+      case 'ArrowLeft':
+      if(waterCol()==false && isInsideBox()==true){
+      style.left = `${parseInt(style.left) - modifier}px`;
+      }
+
+      else if(waterCol() == true && onBridge() == true){
+        style.left = `${parseInt(style.left) - modifier}px`;
+      }
+
+      else{
+        style.left = `${parseInt(style.left) + modifier}px`;
+
+      }
+      break;
+
+
       case 'a':
       if(waterCol()==false && isInsideBox()==true){
       style.left = `${parseInt(style.left) - modifier}px`;
@@ -62,7 +105,21 @@ window.addEventListener('keydown', (event) => {
       }
       break;
 
-      case 'ArrowRight': style.left = `${parseInt(style.left) + modifier}px`; break;
+      case 'ArrowRight':
+        if(waterCol()==false && isInsideBox()==true){
+         style.left = `${parseInt(style.left) + modifier}px`;
+        }
+
+        else if(waterCol() == true && onBridge() == true){
+          style.left = `${parseInt(style.left) + modifier}px`;
+        }
+
+        else{
+          style.left=`${parseInt(style.left) - modifier}px`;
+          waterCol();
+          onBridge();
+        }
+         break;
 
       case 'd':
         if(waterCol()==false && isInsideBox()==true){
@@ -81,13 +138,10 @@ window.addEventListener('keydown', (event) => {
          break;
     }
   });
-
-
   function updatePlayer(){
     playerPos.playerX = parseInt(player.style.left);
     playerPos.playerY = parseInt(player.style.top);
   }
-
 
 function isInsideBox(){
   updatePlayer()
@@ -124,11 +178,6 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 
   function onBridge(){
    updatePlayer();
-
-   console.log('Player X: ' + playerPos.playerX)
-   console.log('Player Y: '+ playerPos.playerY)
-
-   let bridgeColor = document.querySelector('#bridge')
    let bridge = {xl: 750, xr: 925, yt:100, yb:450}
 
   if (
@@ -143,10 +192,22 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
   }
 }
 
-
-
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
+
+window.addEventListener('keydown', (event) => {
+  let caughtPkmn =''
+if(event.key ==' ' && waterCol()==true) {
+fetch('https://pokeapi.co/api/v2/type/water/')
+.then((response)=> response.json())
+.then((data)=> {
+  caughtPkmn= data.pokemon[Math.floor(Math.random() * 185) + 1].pokemon.name
+  alert(`You caught a ${caughtPkmn}!`)
+})
+
+}
+
+});
 
 /*The player gets a random fish and is shown a choice between
 releasing it (does nothing) or putting it in thier inventory*/
