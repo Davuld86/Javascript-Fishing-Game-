@@ -194,9 +194,22 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
-function capitalize(word){
-  return word.charAt(0).toUpperCase() + word.substring(1)
+
+//TO DO: make fctn that takes out the "-" in the pkmn's name, could probably add it to the capitalize fctn
+function parseName(word){
+  console.log(word);
+  let newWord ='';
+  if(word.includes('-')){
+      newWord = word.slice(0, word.indexOf('-'));
+  }
+  else newWord =word;
+  return newWord.charAt(0).toUpperCase() + newWord.substring(1)
 }
+
+
+
+
+
 
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
@@ -209,7 +222,7 @@ fetch('https://pokeapi.co/api/v2/type/water/')
   caughtPkmn= data.pokemon[randIndex].pokemon.name;
   pkmnNbr = data.pokemon[randIndex];
   console.log(pkmnNbr);
-  confirm(`You caught a ${capitalize(caughtPkmn)}!`)
+  confirm(`You caught a ${parseName(caughtPkmn)}!`)
 })
 
 }
