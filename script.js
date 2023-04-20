@@ -200,12 +200,16 @@ function capitalize(word){
 
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
+  let pkmnNbr = 0;
+  let randIndex = (Math.floor(Math.random() * 185) + 1);
 if(event.key ==' ' && waterCol()==true) {
 fetch('https://pokeapi.co/api/v2/type/water/')
 .then((response)=> response.json())
 .then((data)=> {
-  caughtPkmn= data.pokemon[Math.floor(Math.random() * 185) + 1].pokemon.name
-  alert(`You caught a ${capitalize(caughtPkmn)}!`)
+  caughtPkmn= data.pokemon[randIndex].pokemon.name;
+  pkmnNbr = data.pokemon[randIndex];
+  console.log(pkmnNbr);
+  confirm(`You caught a ${capitalize(caughtPkmn)}!`)
 })
 
 }
@@ -217,7 +221,19 @@ releasing it (does nothing) or putting it in thier inventory*/
 
 /*The Player can press the inventory button on the top right to
 access the fish that they kept*/
+const inventoryBtn = document.querySelector('#cooler')
+const storageBtn = document.querySelector('#closeStorage')
+const storage = document.querySelector('#storage')
 
+
+inventoryBtn.addEventListener('click',function(){
+  storage.removeAttribute('hidden');
+});
+
+storageBtn.addEventListener('click',function(){
+  storage.setAttribute('hidden',true);
+});
 /* When the player hovers over the fish, its stats (length, weight, type, selling price, etc.) are displayed*/
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
+

@@ -13,8 +13,22 @@
     background-color: forestgreen;
     border: 5px solid black;
     margin: auto;
+    position: fixed;
+    left: 575px;
     overflow: hidden;
     z-index: 0;
+}
+
+#storage{
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    left: 625px;
+    top:50px;
+    opacity: 90%;
+    background-color: rgb(181, 244, 255);
+    border: 5px solid blue;
+    border-radius: 5%;
 }
 #character{
     width: 50px;
@@ -52,6 +66,18 @@
     top: 10px;
     left:1000px;
     z-index: 5;
+}
+
+#closeStorage{
+    position:absolute;
+    width:25px;
+    height: 25px;
+    font-weight: bold;
+    top:5px;
+    right: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: rgb(231, 48, 48);
 }
 
 #cooler{
