@@ -261,9 +261,15 @@ function makeCard(pkmnObj){
   pkmnCard.querySelector('img').src = pkmnObj.imageSrc;
 
   pkmnCard.appendChild(document.createElement('button'))
+  pkmnCard.querySelector('button').className = 'sellBtn'
   pkmnCard.querySelector('button').textContent = 'sell'
   document.querySelector('#contianer').appendChild(pkmnCard)
 
+  pkmnCard.querySelector('button').addEventListener('click', function(){
+    if(confirm('Sell this pokemon?')){
+      this.parentElement.remove();
+    }
+  })
 
 }
 
