@@ -195,7 +195,6 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
 
-//TO DO: make fctn that takes out the "-" in the pkmn's name, could probably add it to the capitalize fctn
 function parseName(word){
   console.log(word);
   let newWord ='';
@@ -219,10 +218,13 @@ if(event.key ==' ' && waterCol()==true) {
 fetch('https://pokeapi.co/api/v2/type/water/')
 .then((response)=> response.json())
 .then((data)=> {
-  caughtPkmn= data.pokemon[randIndex].pokemon.name;
+  caughtPkmn= parseName(data.pokemon[randIndex].pokemon.name);
   pkmnNbr = data.pokemon[randIndex];
   console.log(pkmnNbr);
-  confirm(`You caught a ${parseName(caughtPkmn)}!`)
+  if (confirm(`You caught a ${caughtPkmn}!`)){
+    storePkmn(caughtPkmn);
+
+  }
 })
 
 }
@@ -231,8 +233,42 @@ fetch('https://pokeapi.co/api/v2/type/water/')
 
 /*The player gets a random fish and is shown a choice between
 releasing it (does nothing) or putting it in thier inventory*/
+function storePkmn(pkmn){
+  let query=pkmn.toLowerCase();
+  fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+  .then((response)=> response.json())
+  .then((data)=> {
+    console.log(data);
+    let newPkmn = {name:pkmn,
+                   id:data.id,
+                   type:[data.types[0].type.name, data.types[1]? data.types[1].type.name : ''],
+                   level: Math.floor(Math.random() *100),
+                   height:data.height,
+                   weight:data.weight,
+                   imageSrc:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${data.id}.gif`,
+                  }
+   makeCard(newPkmn);
+  })
+}
 
-/*The Player can press the inventory button on the top right to
+function makeCard(pkmnObj){
+  let pkmnCard=document.createElement('div');
+  pkmnCard.className = 'card';
+  pkmnCard.textContent = pkmnObj.name;
+
+  pkmnCard.appendChild(document.createElement('img'))
+  pkmnCard.querySelector('img').className = 'pkmn';
+  pkmnCard.querySelector('img').src = pkmnObj.imageSrc;
+
+  pkmnCard.appendChild(document.createElement('button'))
+  pkmnCard.querySelector('button').textContent = 'sell'
+  document.querySelector('#contianer').appendChild(pkmnCard)
+
+
+}
+
+
+/*The Player can press the "cooler" button on the top right to
 access the fish that they kept*/
 const inventoryBtn = document.querySelector('#cooler')
 const storageBtn = document.querySelector('#closeStorage')
@@ -246,7 +282,7 @@ inventoryBtn.addEventListener('click',function(){
 storageBtn.addEventListener('click',function(){
   storage.setAttribute('hidden',true);
 });
-/* When the player hovers over the fish, its stats (length, weight, type, selling price, etc.) are displayed*/
+/* When the player hovers over the "fish", its stats (length, weight, type, selling price, etc.) are displayed*/
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
 
