@@ -273,6 +273,7 @@ function makeCard(pkmnObj){
 
   pkmnCard.querySelector('button').addEventListener('click', function(){
     if(confirm(`Sell this pokemon?`)){
+      addGold(sellPrice)
       this.parentElement.remove();
     }
   })
@@ -314,3 +315,13 @@ imgElement.appendChild(statCard);
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
 
+function addGold(price){
+
+ let goldTally = document.querySelector('#goldTally');
+ let goldAmt = parseInt(document.querySelector('#goldTally').textContent.replace(/[^0-9]/g,""))
+
+console.log(parseInt(goldTally.textContent));
+console.log(price);
+
+ goldTally.textContent=(`Gold: ${goldAmt + price}`)
+}

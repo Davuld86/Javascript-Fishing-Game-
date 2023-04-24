@@ -109,6 +109,19 @@
     box-shadow: 3px 5px blue;
   }
 
+  #goldTally {
+    text-align: left;
+    position:absolute;
+    left:5px;
+    top: 5px;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 25px;
+    color:rgb(255, 216, 43);
+    font-family: "impact";
+    z-index: 5;
+  }
+
   .stats{
     text-align: left;
     background-color: rgb(202, 255, 255);
