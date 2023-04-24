@@ -3,9 +3,6 @@
  const water = getComputedStyle(document.querySelector('#water'));
  let playerPos= {playerX:parseInt(player.style.left)  ,playerY:parseInt(player.style.top), playerWidth:50, playerHeight:50}
 
-console.log(getComputedStyle(document.querySelector(".game")).top)
-console.log(getComputedStyle(document.querySelector(".game")).left)
-
 let modifier = 25;
 
 window.addEventListener('keydown', (event) => {
@@ -220,7 +217,6 @@ fetch('https://pokeapi.co/api/v2/type/water/')
 .then((data)=> {
   caughtPkmn= parseName(data.pokemon[randIndex].pokemon.name);
   pkmnNbr = data.pokemon[randIndex];
-  console.log(pkmnNbr);
   if (confirm(`You caught a ${caughtPkmn}!`)){
     storePkmn(caughtPkmn);
 
@@ -238,7 +234,6 @@ function storePkmn(pkmn){
   fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
   .then((response)=> response.json())
   .then((data)=> {
-    console.log(data);
     let newPkmn = {name:pkmn,
                    id:data.id,
                    type:[data.types[0].type.name, data.types[1]? data.types[1].type.name : ''],
@@ -252,21 +247,32 @@ function storePkmn(pkmn){
 }
 
 function makeCard(pkmnObj){
+  console.log(pkmnObj);
+  let sellPrice  = (pkmnObj.level + pkmnObj.weight *5)
+
   let pkmnCard=document.createElement('div');
   pkmnCard.className = 'card';
   pkmnCard.textContent = pkmnObj.name;
+   let pkmnImg = document.createElement('img');
 
-  pkmnCard.appendChild(document.createElement('img'))
-  pkmnCard.querySelector('img').className = 'pkmn';
-  pkmnCard.querySelector('img').src = pkmnObj.imageSrc;
+  pkmnCard.appendChild(pkmnImg)
+  pkmnImg.className = 'pkmn';
+  pkmnImg.src = pkmnObj.imageSrc;
+  createStats(pkmnCard,pkmnObj);
+  pkmnImg.addEventListener('mouseover', function(){
+     pkmnCard.querySelector('.stats').removeAttribute('hidden')
+  })
+  pkmnImg.addEventListener('mouseout', function(){
+    pkmnCard.querySelector('.stats').setAttribute('hidden',true);
+   })
 
   pkmnCard.appendChild(document.createElement('button'))
   pkmnCard.querySelector('button').className = 'sellBtn'
-  pkmnCard.querySelector('button').textContent = 'sell'
+  pkmnCard.querySelector('button').textContent = `Sell for ${sellPrice} gold`
   document.querySelector('#contianer').appendChild(pkmnCard)
 
   pkmnCard.querySelector('button').addEventListener('click', function(){
-    if(confirm('Sell this pokemon?')){
+    if(confirm(`Sell this pokemon?`)){
       this.parentElement.remove();
     }
   })
@@ -288,7 +294,23 @@ inventoryBtn.addEventListener('click',function(){
 storageBtn.addEventListener('click',function(){
   storage.setAttribute('hidden',true);
 });
+
+
 /* When the player hovers over the "fish", its stats (length, weight, type, selling price, etc.) are displayed*/
+function createStats(imgElement,pkmnObj){
+  let statCard = document.createElement('div');
+  statCard.className = 'stats'
+  statCard.setAttribute('hidden', true);
+let statList = document.createElement('dl');
+let type = `Type: ${pkmnObj.type}`;
+let level = `Level: ${pkmnObj.level}`;
+let height = `Height ${pkmnObj.height}ft`;
+let weight = `Weight ${pkmnObj.weight}lbs`;
+
+statList.append(type,level,height, weight);
+statCard.appendChild(statList);
+imgElement.appendChild(statCard);
+};
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
 

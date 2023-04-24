@@ -107,6 +107,17 @@
     margin: 1rem 2rem;
     overflow: hidden;
     box-shadow: 3px 5px blue;
+  }
+
+  .stats{
+    text-align: left;
+    background-color: rgb(202, 255, 255);
+    border-radius: 10px;
+    border: aqua solid 2px;
+    width: auto;
+    height: auto;
+    z-index: 6;
+    position:absolute;
 
   }
 
