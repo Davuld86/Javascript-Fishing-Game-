@@ -1,12 +1,23 @@
+document.addEventListener('DOMContentLoaded',function(){
+fetch('http://localhost:3000/caughtPkmn')
+.then((response)=> response.json())
+.then((data)=> data.forEach((element)=> makeCard(element)))
+
+fetch('http://localhost:3000/gold')
+.then((response)=> response.json())
+.then((data)=> document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`)
+})
+
+
 //Player is able to move along the map using the arrow keys/ WASD
  const player =document.querySelector('#character');
  const water = getComputedStyle(document.querySelector('#water'));
- let playerPos= {playerX:parseInt(player.style.left)  ,playerY:parseInt(player.style.top), playerWidth:50, playerHeight:50}
+ let playerPos= {playerX:parseInt(player.style.left), playerY:parseInt(player.style.top), playerWidth:50, playerHeight:50}
 
 let modifier = 25;
 
 window.addEventListener('keydown', (event) => {
-    const { style } = player;
+    const {style} = player;
     waterCol();
     onBridge();
     switch(event.key) {
@@ -202,11 +213,6 @@ function parseName(word){
   return newWord.charAt(0).toUpperCase() + newWord.substring(1)
 }
 
-
-
-
-
-
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
   let pkmnNbr = 0;
@@ -237,17 +243,26 @@ function storePkmn(pkmn){
     let newPkmn = {name:pkmn,
                    id:data.id,
                    type:[data.types[0].type.name, data.types[1]? data.types[1].type.name : ''],
-                   level: Math.floor(Math.random() *100),
+                   level: Math.floor(Math.random() *100)+1,
                    height:data.height,
                    weight:data.weight,
                    imageSrc:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${data.id}.gif`,
                   }
    makeCard(newPkmn);
+
+  fetch(`http://localhost:3000/caughtPkmn`,{
+    method: 'POST',
+    headers:
+    {
+      "Content-Type": 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify(newPkmn)
+   })
   })
 }
 
 function makeCard(pkmnObj){
-  console.log(pkmnObj);
   let sellPrice  = (pkmnObj.level + pkmnObj.weight *5)
 
   let pkmnCard=document.createElement('div');
@@ -280,9 +295,9 @@ function makeCard(pkmnObj){
 
 }
 
-
 /*The Player can press the "cooler" button on the top right to
 access the fish that they kept*/
+
 const inventoryBtn = document.querySelector('#cooler')
 const storageBtn = document.querySelector('#closeStorage')
 const storage = document.querySelector('#storage')
@@ -298,19 +313,24 @@ storageBtn.addEventListener('click',function(){
 
 
 /* When the player hovers over the "fish", its stats (length, weight, type, selling price, etc.) are displayed*/
+
 function createStats(imgElement,pkmnObj){
   let statCard = document.createElement('div');
-  statCard.className = 'stats'
+  statCard.className = 'stats';
   statCard.setAttribute('hidden', true);
-let statList = document.createElement('dl');
-let type = `Type: ${pkmnObj.type}`;
-let level = `Level: ${pkmnObj.level}`;
-let height = `Height ${pkmnObj.height}ft`;
-let weight = `Weight ${pkmnObj.weight}lbs`;
 
-statList.append(type,level,height, weight);
-statCard.appendChild(statList);
-imgElement.appendChild(statCard);
+  let statList = document.createElement('dl');
+  let stats = Object.fromEntries(Object.entries(pkmnObj).slice(2,6));
+
+for(stat in stats){
+  let x = document.createElement('li');
+  x.textContent= `${stat}: ${stats[stat]}`;
+  console.log(x.textContent)
+  statList.appendChild(x);
+  }
+
+  statCard.appendChild(statList)
+  imgElement.appendChild(statCard);
 };
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
@@ -319,9 +339,5 @@ function addGold(price){
 
  let goldTally = document.querySelector('#goldTally');
  let goldAmt = parseInt(document.querySelector('#goldTally').textContent.replace(/[^0-9]/g,""))
-
-console.log(parseInt(goldTally.textContent));
-console.log(price);
-
  goldTally.textContent=(`Gold: ${goldAmt + price}`)
 }

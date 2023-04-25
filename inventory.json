@@ -1,18 +1,91 @@
 {
-    "gold":0,
-
-    "caughtPkmn": [
-        {
-            "name": "Lapras",
-            "id": 131,
-            "type": [
-                "water",
-                "ice"
-            ],
-            "level": 38,
-            "height": 25,
-            "weight": 2200,
-            "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/131.gif"
-        }
-    ]
+  "gold": {
+    "amount": 450
+  },
+  "caughtPkmn": [
+    {
+      "name": "Lapras",
+      "id": 131,
+      "type": [
+        "water",
+        "ice"
+      ],
+      "level": 38,
+      "height": 25,
+      "weight": 2200,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/131.gif"
+    },
+    {
+      "name": "Kyogre",
+      "id": 382,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 61,
+      "height": 45,
+      "weight": 3520,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/382.gif"
+    },
+    {
+      "name": "Samurott",
+      "id": 503,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 50,
+      "height": 15,
+      "weight": 946,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/503.gif"
+    },
+    {
+      "name": "Azumarill",
+      "id": 184,
+      "type": [
+        "water",
+        "fairy"
+      ],
+      "level": 44,
+      "height": 8,
+      "weight": 285,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/184.gif"
+    },
+    {
+      "name": "Prinplup",
+      "id": 394,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 47,
+      "height": 8,
+      "weight": 230,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/394.gif"
+    },
+    {
+      "name": "Araquanid",
+      "id": 752,
+      "type": [
+        "water",
+        "bug"
+      ],
+      "level": 0,
+      "height": 18,
+      "weight": 820,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/752.gif"
+    },
+    {
+      "name": "Swampert",
+      "id": 260,
+      "type": [
+        "water",
+        "ground"
+      ],
+      "level": 52,
+      "height": 15,
+      "weight": 819,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/260.gif"
+    }
+  ]
 }
