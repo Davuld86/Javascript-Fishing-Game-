@@ -323,9 +323,8 @@ function createStats(imgElement,pkmnObj){
   let stats = Object.fromEntries(Object.entries(pkmnObj).slice(2,6));
 
 for(stat in stats){
-  let x = document.createElement('li');
+  let x = document.createElement('dl');
   x.textContent= `${stat}: ${stats[stat]}`;
-  console.log(x.textContent)
   statList.appendChild(x);
   }
 
@@ -340,4 +339,17 @@ function addGold(price){
  let goldTally = document.querySelector('#goldTally');
  let goldAmt = parseInt(document.querySelector('#goldTally').textContent.replace(/[^0-9]/g,""))
  goldTally.textContent=(`Gold: ${goldAmt + price}`)
+
+ fetch(`http://localhost:3000/gold/`,{
+  method: 'PATCH',
+  headers:
+  {
+    "Content-Type": "application/json",
+    Accept: "application/json"
+  },
+
+  body: JSON.stringify({
+    "amount": goldAmt+price
+  })
+})
 }

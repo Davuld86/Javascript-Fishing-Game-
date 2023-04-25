@@ -1,6 +1,6 @@
 {
   "gold": {
-    "amount": 450
+    "amount": 45986
   },
   "caughtPkmn": [
     {
@@ -86,6 +86,78 @@
       "height": 15,
       "weight": 819,
       "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/260.gif"
+    },
+    {
+      "name": "Remoraid",
+      "id": 223,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 52,
+      "height": 6,
+      "weight": 120,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/223.gif"
+    },
+    {
+      "name": "Vaporeon",
+      "id": 134,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 84,
+      "height": 10,
+      "weight": 290,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/134.gif"
+    },
+    {
+      "name": "Quaxwell",
+      "id": 913,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 16,
+      "height": 12,
+      "weight": 215,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/913.gif"
+    },
+    {
+      "name": "Skrelp",
+      "id": 690,
+      "type": [
+        "poison",
+        "water"
+      ],
+      "level": 14,
+      "height": 5,
+      "weight": 73,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/690.gif"
+    },
+    {
+      "name": "Omanyte",
+      "id": 138,
+      "type": [
+        "rock",
+        "water"
+      ],
+      "level": 36,
+      "height": 4,
+      "weight": 75,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/138.gif"
+    },
+    {
+      "name": "Poliwrath",
+      "id": 62,
+      "type": [
+        "water",
+        "fighting"
+      ],
+      "level": 64,
+      "height": 13,
+      "weight": 540,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/62.gif"
     }
   ]
 }
