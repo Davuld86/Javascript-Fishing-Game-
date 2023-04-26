@@ -1,163 +1,33 @@
 {
   "gold": {
-    "amount": 45986
+    "amount": 4160
   },
   "caughtPkmn": [
     {
-      "name": "Lapras",
-      "id": 131,
-      "type": [
-        "water",
-        "ice"
-      ],
-      "level": 38,
-      "height": 25,
-      "weight": 2200,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/131.gif"
-    },
-    {
-      "name": "Kyogre",
-      "id": 382,
+      "name": "Froakie",
+      "pokedexNo": 656,
       "type": [
         "water",
         ""
       ],
-      "level": 61,
-      "height": 45,
-      "weight": 3520,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/382.gif"
+      "level": 65,
+      "height": 3,
+      "weight": 70,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/656.gif",
+      "id": 1
     },
     {
-      "name": "Samurott",
-      "id": 503,
+      "name": "Oshawott",
+      "pokedexNo": 501,
       "type": [
         "water",
         ""
       ],
-      "level": 50,
-      "height": 15,
-      "weight": 946,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/503.gif"
-    },
-    {
-      "name": "Azumarill",
-      "id": 184,
-      "type": [
-        "water",
-        "fairy"
-      ],
-      "level": 44,
-      "height": 8,
-      "weight": 285,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/184.gif"
-    },
-    {
-      "name": "Prinplup",
-      "id": 394,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 47,
-      "height": 8,
-      "weight": 230,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/394.gif"
-    },
-    {
-      "name": "Araquanid",
-      "id": 752,
-      "type": [
-        "water",
-        "bug"
-      ],
-      "level": 0,
-      "height": 18,
-      "weight": 820,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/752.gif"
-    },
-    {
-      "name": "Swampert",
-      "id": 260,
-      "type": [
-        "water",
-        "ground"
-      ],
-      "level": 52,
-      "height": 15,
-      "weight": 819,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/260.gif"
-    },
-    {
-      "name": "Remoraid",
-      "id": 223,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 52,
-      "height": 6,
-      "weight": 120,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/223.gif"
-    },
-    {
-      "name": "Vaporeon",
-      "id": 134,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 84,
-      "height": 10,
-      "weight": 290,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/134.gif"
-    },
-    {
-      "name": "Quaxwell",
-      "id": 913,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 16,
-      "height": 12,
-      "weight": 215,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/913.gif"
-    },
-    {
-      "name": "Skrelp",
-      "id": 690,
-      "type": [
-        "poison",
-        "water"
-      ],
-      "level": 14,
+      "level": 7,
       "height": 5,
-      "weight": 73,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/690.gif"
-    },
-    {
-      "name": "Omanyte",
-      "id": 138,
-      "type": [
-        "rock",
-        "water"
-      ],
-      "level": 36,
-      "height": 4,
-      "weight": 75,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/138.gif"
-    },
-    {
-      "name": "Poliwrath",
-      "id": 62,
-      "type": [
-        "water",
-        "fighting"
-      ],
-      "level": 64,
-      "height": 13,
-      "weight": 540,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/62.gif"
+      "weight": 59,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/501.gif",
+      "id": 3
     }
   ]
 }

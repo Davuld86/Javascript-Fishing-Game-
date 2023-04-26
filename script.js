@@ -241,7 +241,7 @@ function storePkmn(pkmn){
   .then((response)=> response.json())
   .then((data)=> {
     let newPkmn = {name:pkmn,
-                   id:data.id,
+                   pokedexNo:data.id,
                    type:[data.types[0].type.name, data.types[1]? data.types[1].type.name : ''],
                    level: Math.floor(Math.random() *100)+1,
                    height:data.height,
@@ -264,10 +264,24 @@ function storePkmn(pkmn){
 
 function makeCard(pkmnObj){
   let sellPrice  = (pkmnObj.level + pkmnObj.weight *5)
-
+  let lastId = 0;
   let pkmnCard=document.createElement('div');
   pkmnCard.className = 'card';
   pkmnCard.textContent = pkmnObj.name;
+
+  if (pkmnObj.id){
+    pkmnCard.id = pkmnObj.id;
+  }
+  else if(document.querySelectorAll('.card')[document.querySelectorAll('.card').length-1]!= undefined){
+    pkmnCard.id = parseInt(document.querySelectorAll('.card')[document.querySelectorAll('.card').length-1].id) +1;
+  }
+  else{
+    pkmnCard.id = 1
+}
+
+
+
+  console.log(pkmnCard.id)
    let pkmnImg = document.createElement('img');
 
   pkmnCard.appendChild(pkmnImg)
@@ -288,8 +302,8 @@ function makeCard(pkmnObj){
 
   pkmnCard.querySelector('button').addEventListener('click', function(){
     if(confirm(`Sell this pokemon?`)){
-      addGold(sellPrice)
-      this.parentElement.remove();
+      sellFish(this);
+      addGold(sellPrice);
     }
   })
 
@@ -320,7 +334,7 @@ function createStats(imgElement,pkmnObj){
   statCard.setAttribute('hidden', true);
 
   let statList = document.createElement('dl');
-  let stats = Object.fromEntries(Object.entries(pkmnObj).slice(2,6));
+  let stats = Object.fromEntries(Object.entries(pkmnObj).slice(1,6));
 
 for(stat in stats){
   let x = document.createElement('dl');
@@ -333,6 +347,16 @@ for(stat in stats){
 };
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
+
+function sellFish(element){
+  element.parentElement.remove();
+  console.log(element.parentElement.id)
+  fetch(`http://localhost:3000/caughtPkmn/${element.parentElement.id}`,{
+    method: 'DELETE'
+  })
+}
+
+
 
 function addGold(price){
 
