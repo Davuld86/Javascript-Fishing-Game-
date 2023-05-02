@@ -186,7 +186,6 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
   function onBridge(){
    updatePlayer();
    let bridge = {xl: 750, xr: 925, yt:100, yb:450}
-
   if (
     (playerPos.playerX > bridge.xl && playerPos.playerX + playerPos.playerWidth <bridge.xr)
     &&(playerPos.playerY > bridge.yt && playerPos.playerY +playerPos.playerHeight < bridge.yb)
@@ -214,8 +213,20 @@ function parseName(word){
 
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
-  let randIndex = (Math.floor(Math.random() * 185) + 1);
+  let randNum = Math.floor(Math.random() * 10) + 1
+  let randGold = Math.floor(Math.random() * 517) + 1
+  let randIndex = (Math.floor(Math.random() * 185));
+
+
 if(event.key ==' ' && waterCol()==true) {
+  if(randNum == 1){
+    alert("Nothing's biting...")
+  }
+  else if(randNum< 5 && randNum>1){
+    alert(`You fished up ${randGold} gold!`);
+    addGold(randGold);
+  }
+  else if(randNum>=5){
 fetch('https://pokeapi.co/api/v2/type/water/')
 .then((response)=> response.json())
 .then((data)=> {
@@ -225,6 +236,7 @@ fetch('https://pokeapi.co/api/v2/type/water/')
       }
     })
   }
+}
 });
 
 /*The player gets a random fish and is shown a choice between
