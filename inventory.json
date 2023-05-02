@@ -3,6 +3,57 @@
     "amount": 0
   },
   "caughtPkmn": [
-
+    {
+      "name": "Primarina",
+      "pokedexNo": 730,
+      "type": [
+        "water",
+        "fairy"
+      ],
+      "level": 63,
+      "height": 18,
+      "weight": 440,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/730.gif",
+      "id": 1
+    },
+    {
+      "name": "Gastrodon",
+      "pokedexNo": 423,
+      "type": [
+        "water",
+        "ground"
+      ],
+      "level": 66,
+      "height": 9,
+      "weight": 299,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/423.gif",
+      "id": 2
+    },
+    {
+      "name": "Cloyster",
+      "pokedexNo": 91,
+      "type": [
+        "water",
+        "ice"
+      ],
+      "level": 22,
+      "height": 15,
+      "weight": 1325,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/91.gif",
+      "id": 3
+    },
+    {
+      "name": "Floatzel",
+      "pokedexNo": 419,
+      "type": [
+        "water",
+        ""
+      ],
+      "level": 21,
+      "height": 11,
+      "weight": 335,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/419.gif",
+      "id": 4
+    }
   ]
 }

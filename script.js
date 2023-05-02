@@ -169,7 +169,7 @@ function isInsideBox(){
 
 function waterCol(){
 updatePlayer();
-let waterPos  = {waterX:parseInt(water.left), waterY: parseInt(water.top), waterWidth:parseInt(water.width), waterHeight:parseInt(water.height)};
+const waterPos  = {waterX:parseInt(water.left), waterY: parseInt(water.top), waterWidth:parseInt(water.width), waterHeight:parseInt(water.height)};
 
 if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
       playerPos.playerX + playerPos.playerWidth < waterPos.waterX ||
@@ -215,22 +215,17 @@ function parseName(word){
 
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
-  let pkmnNbr = 0;
   let randIndex = (Math.floor(Math.random() * 185) + 1);
 if(event.key ==' ' && waterCol()==true) {
 fetch('https://pokeapi.co/api/v2/type/water/')
 .then((response)=> response.json())
 .then((data)=> {
   caughtPkmn= parseName(data.pokemon[randIndex].pokemon.name);
-  pkmnNbr = data.pokemon[randIndex];
   if (confirm(`You caught a ${caughtPkmn}!`)){
     storePkmn(caughtPkmn);
-
+      }
+    })
   }
-})
-
-}
-
 });
 
 /*The player gets a random fish and is shown a choice between
@@ -249,7 +244,6 @@ function storePkmn(pkmn){
                    imageSrc:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${data.id}.gif`,
                   }
    makeCard(newPkmn);
-
   fetch(`http://localhost:3000/caughtPkmn`,{
     method: 'POST',
     headers:
