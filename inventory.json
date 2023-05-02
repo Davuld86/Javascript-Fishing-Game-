@@ -1,33 +1,8 @@
 {
   "gold": {
-    "amount": 4160
+    "amount": 0
   },
   "caughtPkmn": [
-    {
-      "name": "Froakie",
-      "pokedexNo": 656,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 65,
-      "height": 3,
-      "weight": 70,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/656.gif",
-      "id": 1
-    },
-    {
-      "name": "Oshawott",
-      "pokedexNo": 501,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 7,
-      "height": 5,
-      "weight": 59,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/501.gif",
-      "id": 3
-    }
+
   ]
 }

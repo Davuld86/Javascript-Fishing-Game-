@@ -278,10 +278,6 @@ function makeCard(pkmnObj){
   else{
     pkmnCard.id = 1
 }
-
-
-
-  console.log(pkmnCard.id)
    let pkmnImg = document.createElement('img');
 
   pkmnCard.appendChild(pkmnImg)
@@ -350,20 +346,15 @@ for(stat in stats){
 
 function sellFish(element){
   element.parentElement.remove();
-  console.log(element.parentElement.id)
   fetch(`http://localhost:3000/caughtPkmn/${element.parentElement.id}`,{
     method: 'DELETE'
   })
 }
 
-
-
 function addGold(price){
-
  let goldTally = document.querySelector('#goldTally');
  let goldAmt = parseInt(document.querySelector('#goldTally').textContent.replace(/[^0-9]/g,""))
  goldTally.textContent=(`Gold: ${goldAmt + price}`)
-
  fetch(`http://localhost:3000/gold/`,{
   method: 'PATCH',
   headers:
@@ -377,3 +368,15 @@ function addGold(price){
   })
 })
 }
+
+/* TO DO:
+1. Fix bug involving pkmn names w/ hyphens in them
+2. Make the inventory menu look nice
+  2.1 Put a radius on the sell button
+  2.2 make it so that single-typed pkmn dont have a comma
+  2.3 Center the pkmn cards
+3. make the play area look nice
+4. revamnp the movement
+5. revamp the colision
+6. Game-ify it, give a chance to add gold, or nothing.
+*/
