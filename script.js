@@ -36,7 +36,6 @@ window.addEventListener('keydown', (event) => {
         }
         break;
 
-
       case 'w':
         if(waterCol()==false && isInsideBox()==true){
           style.top = `${parseInt(style.top) - modifier}px`;
@@ -362,15 +361,3 @@ function addGold(price){
   })
 })
 }
-
-/* TO DO:
-1. Fix bug involving pkmn names w/ hyphens in them
-2. Make the inventory menu look nice
-  2.1 Put a radius on the sell button
-  2.2 make it so that single-typed pkmn dont have a comma
-  2.3 Center the pkmn cards
-3. make the play area look nice
-4. revamnp the movement
-5. revamp the colision
-6. Game-ify it, give a chance to add gold, or nothing.
-*/

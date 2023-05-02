@@ -4,56 +4,17 @@
   },
   "caughtPkmn": [
     {
-      "name": "Primarina",
-      "pokedexNo": 730,
+      "name": "Chinchou",
+      "pokedexNo": 170,
       "type": [
         "water",
-        "fairy"
+        "electric"
       ],
-      "level": 63,
-      "height": 18,
-      "weight": 440,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/730.gif",
+      "level": 12,
+      "height": 5,
+      "weight": 120,
+      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/170.gif",
       "id": 1
-    },
-    {
-      "name": "Gastrodon",
-      "pokedexNo": 423,
-      "type": [
-        "water",
-        "ground"
-      ],
-      "level": 66,
-      "height": 9,
-      "weight": 299,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/423.gif",
-      "id": 2
-    },
-    {
-      "name": "Cloyster",
-      "pokedexNo": 91,
-      "type": [
-        "water",
-        "ice"
-      ],
-      "level": 22,
-      "height": 15,
-      "weight": 1325,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/91.gif",
-      "id": 3
-    },
-    {
-      "name": "Floatzel",
-      "pokedexNo": 419,
-      "type": [
-        "water",
-        ""
-      ],
-      "level": 21,
-      "height": 11,
-      "weight": 335,
-      "imageSrc": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/419.gif",
-      "id": 4
     }
   ]
 }
