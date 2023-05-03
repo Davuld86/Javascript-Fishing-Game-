@@ -125,13 +125,17 @@
   .stats{
     text-align: left;
     text-transform: capitalize;
+    line-height: 1.5;
     background-color: rgb(202, 255, 255);
     border-radius: 10px;
     border: aqua solid 2px;
-    width: 150px;
-    height: 100px;
+    width: 155px;
+    height: 120px;
     z-index: 6;
     position:absolute;
+    right: 3rem;
+    top: 6rem;
+    padding: 5px;
 
   }
 
