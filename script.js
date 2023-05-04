@@ -8,20 +8,17 @@ fetch('http://localhost:3000/gold')
 .then((data)=> document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`)
 })
 
-
 //Player is able to move along the map using the arrow keys/ WASD
  const player =document.querySelector('#character');
  const water = getComputedStyle(document.querySelector('#water'));
  let playerPos= {playerX:parseInt(player.style.left), playerY:parseInt(player.style.top), playerWidth:50, playerHeight:50}
 
 let modifier = 25;
-
 window.addEventListener('keydown', (event) => {
     const {style} = player;
     waterCol();
     onBridge();
     switch(event.key) {
-
       case 'ArrowUp':
         if(waterCol()==false && isInsideBox()==true){
           style.top = `${parseInt(style.top) - modifier}px`;
@@ -35,7 +32,6 @@ window.addEventListener('keydown', (event) => {
           onBridge();
         }
         break;
-
       case 'w':
         if(waterCol()==false && isInsideBox()==true){
           style.top = `${parseInt(style.top) - modifier}px`;
@@ -64,8 +60,6 @@ window.addEventListener('keydown', (event) => {
             onBridge();
           }
           break;
-
-
       case 's':
       if(waterCol()==false && isInsideBox()==true){
       style.top = `${parseInt(style.top) + modifier}px`;
@@ -200,7 +194,6 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
-
 function parseName(word){
   console.log(word);
   let newWord ='';
@@ -210,14 +203,11 @@ function parseName(word){
   else newWord =word;
   return newWord.charAt(0).toUpperCase() + newWord.substring(1)
 }
-
 window.addEventListener('keydown', (event) => {
   let caughtPkmn =''
   let randNum = Math.floor(Math.random() * 10) + 1
   let randGold = Math.floor(Math.random() * 517) + 1
   let randIndex = (Math.floor(Math.random() * 185));
-
-
 if(event.key ==' ' && waterCol()==true) {
   if(randNum == 1){
     alert("Nothing's biting...")
@@ -268,8 +258,7 @@ function storePkmn(pkmn){
 }
 
 function makeCard(pkmnObj){
-  let sellPrice  = (pkmnObj.level + pkmnObj.weight *5)
-  let lastId = 0;
+  let sellPrice  = (pkmnObj.level + pkmnObj.weight *3)
   let pkmnCard=document.createElement('div');
   pkmnCard.className = 'card';
   pkmnCard.textContent = pkmnObj.name;
@@ -295,7 +284,6 @@ function makeCard(pkmnObj){
   pkmnImg.addEventListener('mouseout', function(){
     pkmnCard.querySelector('.stats').setAttribute('hidden',true);
    })
-
   pkmnCard.appendChild(document.createElement('button'))
   pkmnCard.querySelector('button').className = 'sellBtn'
   pkmnCard.querySelector('button').textContent = `Sell for ${sellPrice} gold`
@@ -336,15 +324,17 @@ function createStats(imgElement,pkmnObj){
 
   let statList = document.createElement('dl');
   let stats = Object.fromEntries(Object.entries(pkmnObj).slice(1,6));
+  console.log(stats)
 
-for(stat in stats){
+Object.entries(stats).forEach((element)=> {
   let x = document.createElement('dl');
-  x.textContent= `${stat}: ${stats[stat]}`;
+  x.textContent= `${element[0]}: ${element[1]}`;
   statList.appendChild(x);
-  }
+
 
   statCard.appendChild(statList)
   imgElement.appendChild(statCard);
+})
 };
 
 /* The player can sell the fish from the inventory menu and gain gold equal to its sell price*/
@@ -373,3 +363,4 @@ function addGold(price){
   })
 })
 }
+
