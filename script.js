@@ -5,7 +5,11 @@ fetch('http://localhost:3000/caughtPkmn')
 
 fetch('http://localhost:3000/gold')
 .then((response)=> response.json())
-.then((data)=> document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`)
+.then((data)=> {
+if(data.amount != undefined){
+document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`
+}
+})
 })
 
 //Player is able to move along the map using the arrow keys/ WASD
@@ -194,35 +198,28 @@ if (playerPos.playerX > waterPos.waterX +waterPos.waterWidth||
 
 /*When player is at the water's edge, they are able to press
 SPACE to fish (pressing SPACE anywhere else will do nothing)*/
-function parseName(word){
-  console.log(word);
-  let newWord ='';
-  if(word.includes('-')){
-      newWord = word.slice(0, word.indexOf('-'));
-  }
-  else newWord =word;
-  return newWord.charAt(0).toUpperCase() + newWord.substring(1)
-}
+
 window.addEventListener('keydown', (event) => {
-  let caughtPkmn =''
+  let caughtFish =''
   let randNum = Math.floor(Math.random() * 10) + 1
   let randGold = Math.floor(Math.random() * 517) + 1
-  let randIndex = (Math.floor(Math.random() * 185));
+  let randIndex = (Math.floor(Math.random() * 80) +1);
 if(event.key ==' ' && waterCol()==true) {
   if(randNum == 1){
     alert("Nothing's biting...")
   }
-  else if(randNum< 5 && randNum>1){
+  else if(randNum< 4 && randNum>1){
     alert(`You fished up ${randGold} gold!`);
     addGold(randGold);
   }
-  else if(randNum>=5){
-fetch('https://pokeapi.co/api/v2/type/water/')
+  else if(randNum>=4){
+fetch(`http://localhost:3000/fish/${randIndex}`)
 .then((response)=> response.json())
 .then((data)=> {
-  caughtPkmn= parseName(data.pokemon[randIndex].pokemon.name);
-  if (confirm(`You caught a ${caughtPkmn}!`)){
-    storePkmn(caughtPkmn);
+ caughtFish = data.name;
+
+  if (confirm(`You caught a ${caughtFish}!`)){
+    //storeFish(caughtFish);
       }
     })
   }
@@ -231,30 +228,8 @@ fetch('https://pokeapi.co/api/v2/type/water/')
 
 /*The player gets a random fish and is shown a choice between
 releasing it (does nothing) or putting it in thier inventory*/
-function storePkmn(pkmn){
-  let query=pkmn.toLowerCase();
-  fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
-  .then((response)=> response.json())
-  .then((data)=> {
-    let newPkmn = {name:pkmn,
-                   pokedexNo:data.id,
-                   type:[data.types[0].type.name, data.types[1]? data.types[1].type.name : ''],
-                   level: Math.floor(Math.random() *100)+1,
-                   height:data.height,
-                   weight:data.weight,
-                   imageSrc:`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/${data.id}.gif`,
-                  }
-   makeCard(newPkmn);
-  fetch(`http://localhost:3000/caughtPkmn`,{
-    method: 'POST',
-    headers:
-    {
-      "Content-Type": 'application/json',
-      Accept: 'application/json'
-    },
-    body: JSON.stringify(newPkmn)
-   })
-  })
+function storeFish(fishName){
+
 }
 
 function makeCard(pkmnObj){
