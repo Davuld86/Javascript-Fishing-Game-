@@ -264,7 +264,6 @@ function makeCard(fishObj){
 
   fishCard.appendChild(fishImg)
   fishImg.className = 'fish';
-  console.log(fishObj.imageUrl)
   fishImg.src = fishObj.imageUrl;
   createStats(fishCard,fishObj);
   fishImg.addEventListener('mouseover', function(){
@@ -312,7 +311,7 @@ function createStats(imgElement,fishObj){
   statCard.setAttribute('hidden', true);
 
   let statList = document.createElement('dl');
-  let stats = Object.fromEntries(Object.entries(fishObj).slice(1,6));
+  let stats = Object.fromEntries(Object.entries(fishObj).slice(1,3));
   console.log(stats)
 
 Object.entries(stats).forEach((element)=> {

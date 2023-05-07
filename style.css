@@ -97,6 +97,7 @@
 
 .card {
     text-align: center;
+    text-transform: capitalize;
     font-family: Helvetica, sans-serif;
     border: grey solid 1px;
     border-radius: 10px;
@@ -129,13 +130,11 @@
     background-color: rgb(202, 255, 255);
     border-radius: 10px;
     border: aqua solid 2px;
-    width: 155px;
-    height: 120px;
+    width: 130px;
+    height: auto;
     z-index: 6;
-    position:absolute;
     right: 3rem;
     top: 6rem;
-    padding: 5px;
 
   }
 
