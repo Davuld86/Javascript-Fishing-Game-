@@ -2,7 +2,647 @@
   "gold": {
     "amount": 0
   },
-  "caughtFish": [
-
+  "caughtFish": [],
+  "fishTypes": [
+    {
+      "name": "bitterling",
+      "price": 900,
+      "length": "23 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/1",
+      "id": 1
+    },
+    {
+      "name": "pale chub",
+      "price": 200,
+      "length": "2 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/2",
+      "id": 2
+    },
+    {
+      "name": "crucian carp",
+      "price": 160,
+      "length": "16 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/3",
+      "id": 3
+    },
+    {
+      "name": "dace",
+      "price": 240,
+      "length": "5 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/4",
+      "id": 4
+    },
+    {
+      "name": "carp",
+      "price": 300,
+      "length": "6 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/5",
+      "id": 5
+    },
+    {
+      "name": "koi",
+      "price": 4000,
+      "length": "36 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/6",
+      "id": 6
+    },
+    {
+      "name": "goldfish",
+      "price": 1300,
+      "length": "26 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/7",
+      "id": 7
+    },
+    {
+      "name": "pop-eyed goldfish",
+      "price": 1300,
+      "length": "21 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/8",
+      "id": 8
+    },
+    {
+      "name": "ranchu goldfish",
+      "price": 4500,
+      "length": "10 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/9",
+      "id": 9
+    },
+    {
+      "name": "killifish",
+      "price": 300,
+      "length": "33 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/10",
+      "id": 10
+    },
+    {
+      "name": "crawfish",
+      "price": 200,
+      "length": "6 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/11",
+      "id": 11
+    },
+    {
+      "name": "soft-shelled turtle",
+      "price": 3750,
+      "length": "8 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/12",
+      "id": 12
+    },
+    {
+      "name": "snapping turtle",
+      "price": 5000,
+      "length": "13 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/13",
+      "id": 13
+    },
+    {
+      "name": "tadpole",
+      "price": 100,
+      "length": "27 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/14",
+      "id": 14
+    },
+    {
+      "name": "frog",
+      "price": 120,
+      "length": "27 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/15",
+      "id": 15
+    },
+    {
+      "name": "freshwater goby",
+      "price": 400,
+      "length": "30 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/16",
+      "id": 16
+    },
+    {
+      "name": "loach",
+      "price": 400,
+      "length": "15 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/17",
+      "id": 17
+    },
+    {
+      "name": "catfish",
+      "price": 800,
+      "length": "18 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/18",
+      "id": 18
+    },
+    {
+      "name": "giant snakehead",
+      "price": 5500,
+      "length": "26 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/19",
+      "id": 19
+    },
+    {
+      "name": "bluegill",
+      "price": 180,
+      "length": "18 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/20",
+      "id": 20
+    },
+    {
+      "name": "yellow perch",
+      "price": 300,
+      "length": "27 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/21",
+      "id": 21
+    },
+    {
+      "name": "black bass",
+      "price": 400,
+      "length": "4 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/22",
+      "id": 22
+    },
+    {
+      "name": "tilapia",
+      "price": 800,
+      "length": "4 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/23",
+      "id": 23
+    },
+    {
+      "name": "pike",
+      "price": 1800,
+      "length": "15 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/24",
+      "id": 24
+    },
+    {
+      "name": "pond smelt",
+      "price": 400,
+      "length": "20 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/25",
+      "id": 25
+    },
+    {
+      "name": "sweetfish",
+      "price": 900,
+      "length": "15 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/26",
+      "id": 26
+    },
+    {
+      "name": "cherry salmon",
+      "price": 1000,
+      "length": "20 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/27",
+      "id": 27
+    },
+    {
+      "name": "char",
+      "price": 3800,
+      "length": "9 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/28",
+      "id": 28
+    },
+    {
+      "name": "golden trout",
+      "price": 15000,
+      "length": "6 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/29",
+      "id": 29
+    },
+    {
+      "name": "stringfish",
+      "price": 15000,
+      "length": "14 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/30",
+      "id": 30
+    },
+    {
+      "name": "salmon",
+      "price": 700,
+      "length": "8 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/31",
+      "id": 31
+    },
+    {
+      "name": "king salmon",
+      "price": 1800,
+      "length": "9 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/32",
+      "id": 32
+    },
+    {
+      "name": "mitten crab",
+      "price": 2000,
+      "length": "6 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/33",
+      "id": 33
+    },
+    {
+      "name": "guppy",
+      "price": 1300,
+      "length": "33 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/34",
+      "id": 34
+    },
+    {
+      "name": "nibble fish",
+      "price": 1500,
+      "length": "10 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/35",
+      "id": 35
+    },
+    {
+      "name": "angelfish",
+      "price": 3000,
+      "length": "16 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/36",
+      "id": 36
+    },
+    {
+      "name": "betta",
+      "price": 2500,
+      "length": "25 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/37",
+      "id": 37
+    },
+    {
+      "name": "neon tetra",
+      "price": 500,
+      "length": "30 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/38",
+      "id": 38
+    },
+    {
+      "name": "rainbowfish",
+      "price": 800,
+      "length": "23 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/39",
+      "id": 39
+    },
+    {
+      "name": "piranha",
+      "price": 2500,
+      "length": "33 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/40",
+      "id": 40
+    },
+    {
+      "name": "arowana",
+      "price": 10000,
+      "length": "19 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/41",
+      "id": 41
+    },
+    {
+      "name": "dorado",
+      "price": 15000,
+      "length": "18 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/42",
+      "id": 42
+    },
+    {
+      "name": "gar",
+      "price": 6000,
+      "length": "6 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/43",
+      "id": 43
+    },
+    {
+      "name": "arapaima",
+      "price": 10000,
+      "length": "31 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/44",
+      "id": 44
+    },
+    {
+      "name": "saddled bichir",
+      "price": 4000,
+      "length": "10 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/45",
+      "id": 45
+    },
+    {
+      "name": "sturgeon",
+      "price": 10000,
+      "length": "6 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/46",
+      "id": 46
+    },
+    {
+      "name": "sea butterfly",
+      "price": 1000,
+      "length": "21 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/47",
+      "id": 47
+    },
+    {
+      "name": "sea horse",
+      "price": 1100,
+      "length": "4 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/48",
+      "id": 48
+    },
+    {
+      "name": "clown fish",
+      "price": 650,
+      "length": "34 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/49",
+      "id": 49
+    },
+    {
+      "name": "surgeonfish",
+      "price": 1000,
+      "length": "29 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/50",
+      "id": 50
+    },
+    {
+      "name": "butterfly fish",
+      "price": 1000,
+      "length": "27 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/51",
+      "id": 51
+    },
+    {
+      "name": "Napoleonfish",
+      "price": 10000,
+      "length": "25 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/52",
+      "id": 52
+    },
+    {
+      "name": "zebra turkeyfish",
+      "price": 500,
+      "length": "18 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/53",
+      "id": 53
+    },
+    {
+      "name": "blowfish",
+      "price": 5000,
+      "length": "32 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/54",
+      "id": 54
+    },
+    {
+      "name": "puffer fish",
+      "price": 250,
+      "length": "20 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/55",
+      "id": 55
+    },
+    {
+      "name": "anchovy",
+      "price": 200,
+      "length": "21 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/56",
+      "id": 56
+    },
+    {
+      "name": "horse mackerel",
+      "price": 150,
+      "length": "15 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/57",
+      "id": 57
+    },
+    {
+      "name": "barred knifejaw",
+      "price": 5000,
+      "length": "8 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/58",
+      "id": 58
+    },
+    {
+      "name": "sea bass",
+      "price": 400,
+      "length": "12 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/59",
+      "id": 59
+    },
+    {
+      "name": "red snapper",
+      "price": 3000,
+      "length": "4 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/60",
+      "id": 60
+    },
+    {
+      "name": "dab",
+      "price": 300,
+      "length": "32 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/61",
+      "id": 61
+    },
+    {
+      "name": "olive flounder",
+      "price": 800,
+      "length": "1 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/62",
+      "id": 62
+    },
+    {
+      "name": "squid",
+      "price": 500,
+      "length": "29 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/63",
+      "id": 63
+    },
+    {
+      "name": "moray eel",
+      "price": 2000,
+      "length": "25 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/64",
+      "id": 64
+    },
+    {
+      "name": "ribbon eel",
+      "price": 600,
+      "length": "20 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/65",
+      "id": 65
+    },
+    {
+      "name": "tuna",
+      "price": 7000,
+      "length": "15 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/66",
+      "id": 66
+    },
+    {
+      "name": "blue marlin",
+      "price": 10000,
+      "length": "27 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/67",
+      "id": 67
+    },
+    {
+      "name": "giant trevally",
+      "price": 4500,
+      "length": "25 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/68",
+      "id": 68
+    },
+    {
+      "name": "mahi-mahi",
+      "price": 6000,
+      "length": "2 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/69",
+      "id": 69
+    },
+    {
+      "name": "ocean sunfish",
+      "price": 4000,
+      "length": "11 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/70",
+      "id": 70
+    },
+    {
+      "name": "ray",
+      "price": 3000,
+      "length": "17 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/71",
+      "id": 71
+    },
+    {
+      "name": "saw shark",
+      "price": 12000,
+      "length": "17 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/72",
+      "id": 72
+    },
+    {
+      "name": "hammerhead shark",
+      "price": 8000,
+      "length": "1 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/73",
+      "id": 73
+    },
+    {
+      "name": "great white shark",
+      "price": 15000,
+      "length": "25 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/74",
+      "id": 74
+    },
+    {
+      "name": "whale shark",
+      "price": 13000,
+      "length": "14 in",
+      "weight": "2 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/75",
+      "id": 75
+    },
+    {
+      "name": "suckerfish",
+      "price": 1500,
+      "length": "28 in",
+      "weight": "3 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/76",
+      "id": 76
+    },
+    {
+      "name": "football fish",
+      "price": 2500,
+      "length": "4 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/77",
+      "id": 77
+    },
+    {
+      "name": "oarfish",
+      "price": 9000,
+      "length": "24 in",
+      "weight": "5 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/78",
+      "id": 78
+    },
+    {
+      "name": "barreleye",
+      "price": 15000,
+      "length": "6 in",
+      "weight": "1 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/79",
+      "id": 79
+    },
+    {
+      "name": "coelacanth",
+      "price": 15000,
+      "length": "6 in",
+      "weight": "4 lbs",
+      "image": "https://acnhapi.com/v1/images/fish/80",
+      "id": 80
+    }
   ]
 }

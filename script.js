@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded',function(){
-fetch('http://localhost:3000/caughtPkmn')
+fetch('http://localhost:3000/caughtFish')
 .then((response)=> response.json())
 .then((data)=> data.forEach((element)=> makeCard(element)))
 
@@ -211,7 +211,7 @@ if(event.key ==' ' && waterCol()==true) {
     addGold(randGold);
   }
   else if(randNum>=4){
-fetch(`http://localhost:3000/fish/${randIndex}`)
+fetch(`http://localhost:3000/fishTypes/${randIndex}`)
 .then((response)=> response.json())
 .then((data)=> {
  caughtFish = data.name;
@@ -227,7 +227,7 @@ fetch(`http://localhost:3000/fish/${randIndex}`)
 releasing it (does nothing) or putting it in thier inventory*/
 function storeFish(fishObj){
   let newFish = { name: fishObj.name,
-                  length: `${Math.floor(Math.random() * 36)}.${Math.floor(Math.random() * 99)} in`,
+                  length: `${Math.floor(Math.random() * 36)+2}.${Math.floor(Math.random() * 99)} in`,
                   weight: `${Math.floor(Math.random() * 5)}.${Math.floor(Math.random() * 99)} lbs`,
                   price: fishObj.price,
                   imageUrl: fishObj.image,
@@ -245,7 +245,6 @@ function storeFish(fishObj){
 }
 
 function makeCard(fishObj){
-  console.log(fishObj)
   let sellPrice  = (fishObj.price)
   let fishCard=document.createElement('div');
   fishCard.className = 'card';
@@ -312,14 +311,11 @@ function createStats(imgElement,fishObj){
 
   let statList = document.createElement('dl');
   let stats = Object.fromEntries(Object.entries(fishObj).slice(1,3));
-  console.log(stats)
 
 Object.entries(stats).forEach((element)=> {
   let x = document.createElement('dl');
   x.textContent= `${element[0]}: ${element[1]}`;
   statList.appendChild(x);
-
-
   statCard.appendChild(statList)
   imgElement.appendChild(statCard);
 })
@@ -329,7 +325,7 @@ Object.entries(stats).forEach((element)=> {
 
 function sellFish(element){
   element.parentElement.remove();
-  fetch(`http://localhost:3000/caughtPkmn/${element.parentElement.id}`,{
+  fetch(`http://localhost:3000/caughtFish/${element.parentElement.id}`,{
     method: 'DELETE'
   })
 }
