@@ -6,10 +6,8 @@ fetch('http://localhost:3000/caughtPkmn')
 fetch('http://localhost:3000/gold')
 .then((response)=> response.json())
 .then((data)=> {
-if(data.amount != undefined){
-document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`
-}
-})
+if(data.amount != undefined){document.querySelector('#goldTally').textContent = `Gold: ${data.amount}`}
+  })
 })
 
 //Player is able to move along the map using the arrow keys/ WASD
@@ -217,9 +215,8 @@ fetch(`http://localhost:3000/fish/${randIndex}`)
 .then((response)=> response.json())
 .then((data)=> {
  caughtFish = data.name;
-
   if (confirm(`You caught a ${caughtFish}!`)){
-    //storeFish(caughtFish);
+    storeFish(data);
       }
     })
   }
@@ -228,44 +225,61 @@ fetch(`http://localhost:3000/fish/${randIndex}`)
 
 /*The player gets a random fish and is shown a choice between
 releasing it (does nothing) or putting it in thier inventory*/
-function storeFish(fishName){
-
+function storeFish(fishObj){
+  let newFish = { name: fishObj.name,
+                  length: `${Math.floor(Math.random() * 36)}.${Math.floor(Math.random() * 99)} in`,
+                  weight: `${Math.floor(Math.random() * 5)}.${Math.floor(Math.random() * 99)} lbs`,
+                  price: fishObj.price,
+                  imageUrl: fishObj.image,
+  }
+  makeCard(newFish);
+  fetch(`http://localhost:3000/caughtFish`,{
+    method: 'POST',
+    headers:
+    {
+      "Content-Type": 'application/json',
+      Accept: 'application/json'
+    },
+    body: JSON.stringify(newFish)
+   })
 }
 
-function makeCard(pkmnObj){
-  let sellPrice  = (pkmnObj.level + pkmnObj.weight *3)
-  let pkmnCard=document.createElement('div');
-  pkmnCard.className = 'card';
-  pkmnCard.textContent = pkmnObj.name;
+function makeCard(fishObj){
+  console.log(fishObj)
+  let sellPrice  = (fishObj.price)
+  let fishCard=document.createElement('div');
+  fishCard.className = 'card';
+  fishCard.textContent = fishObj.name;
 
-  if (pkmnObj.id){
-    pkmnCard.id = pkmnObj.id;
+  if (fishObj.id){
+    fishCard.id = fishObj.id;
   }
   else if(document.querySelectorAll('.card')[document.querySelectorAll('.card').length-1]!= undefined){
-    pkmnCard.id = parseInt(document.querySelectorAll('.card')[document.querySelectorAll('.card').length-1].id) +1;
+    fishCard.id = parseInt(document.querySelectorAll('.card')[document.querySelectorAll('.card').length-1].id) +1;
   }
   else{
-    pkmnCard.id = 1
+    fishCard.id = 1
 }
-   let pkmnImg = document.createElement('img');
+   let fishImg = document.createElement('img');
 
-  pkmnCard.appendChild(pkmnImg)
-  pkmnImg.className = 'pkmn';
-  pkmnImg.src = pkmnObj.imageSrc;
-  createStats(pkmnCard,pkmnObj);
-  pkmnImg.addEventListener('mouseover', function(){
-     pkmnCard.querySelector('.stats').removeAttribute('hidden')
+  fishCard.appendChild(fishImg)
+  fishImg.className = 'fish';
+  console.log(fishObj.imageUrl)
+  fishImg.src = fishObj.imageUrl;
+  createStats(fishCard,fishObj);
+  fishImg.addEventListener('mouseover', function(){
+     fishCard.querySelector('.stats').removeAttribute('hidden')
   })
-  pkmnImg.addEventListener('mouseout', function(){
-    pkmnCard.querySelector('.stats').setAttribute('hidden',true);
+  fishImg.addEventListener('mouseout', function(){
+    fishCard.querySelector('.stats').setAttribute('hidden',true);
    })
-  pkmnCard.appendChild(document.createElement('button'))
-  pkmnCard.querySelector('button').className = 'sellBtn'
-  pkmnCard.querySelector('button').textContent = `Sell for ${sellPrice} gold`
-  document.querySelector('#contianer').appendChild(pkmnCard)
+  fishCard.appendChild(document.createElement('button'))
+  fishCard.querySelector('button').className = 'sellBtn'
+  fishCard.querySelector('button').textContent = `Sell for ${sellPrice} gold`
+  document.querySelector('#contianer').appendChild(fishCard)
 
-  pkmnCard.querySelector('button').addEventListener('click', function(){
-    if(confirm(`Sell this pokemon?`)){
+  fishCard.querySelector('button').addEventListener('click', function(){
+    if(confirm(`Sell this fish?`)){
       sellFish(this);
       addGold(sellPrice);
     }
@@ -292,13 +306,13 @@ storageBtn.addEventListener('click',function(){
 
 /* When the player hovers over the "fish", its stats (length, weight, type, selling price, etc.) are displayed*/
 
-function createStats(imgElement,pkmnObj){
+function createStats(imgElement,fishObj){
   let statCard = document.createElement('div');
   statCard.className = 'stats';
   statCard.setAttribute('hidden', true);
 
   let statList = document.createElement('dl');
-  let stats = Object.fromEntries(Object.entries(pkmnObj).slice(1,6));
+  let stats = Object.fromEntries(Object.entries(fishObj).slice(1,6));
   console.log(stats)
 
 Object.entries(stats).forEach((element)=> {
