@@ -1,3 +1,6 @@
+let fishes =[];
+
+
 document.addEventListener('DOMContentLoaded',function(){
 fetch('http://localhost:3000/caughtFish')
 .then((response)=> response.json())
@@ -211,12 +214,15 @@ if(event.key ==' ' && waterCol()==true) {
     addGold(randGold);
   }
   else if(randNum>=4){
-fetch(`http://localhost:3000/fishTypes/${randIndex}`)
+fetch(`http://localhost:3000/fishTypes`)
 .then((response)=> response.json())
 .then((data)=> {
- caughtFish = data.name;
+  fishes = data
+  let randomFish = fishes.find(fish=> fish.id===randIndex)
+  console.log(randomFish)
+ caughtFish = randomFish.name;
   if (confirm(`You caught a ${caughtFish}!`)){
-    storeFish(data);
+    storeFish(randomFish);
       }
     })
   }
