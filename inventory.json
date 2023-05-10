@@ -1,26 +1,9 @@
 {
   "gold": {
-    "amount": 361
+    "amount":
   },
   "caughtFish": [
-    {
-      "length": "26.69 in",
-      "weight": "4.87 lbs",
-      "id": 1
-    },
-    {
-      "length": "18.25 in",
-      "weight": "1.40 lbs",
-      "id": 2
-    },
-    {
-      "name": "king salmon",
-      "length": "31.89 in",
-      "weight": "4.46 lbs",
-      "price": 1800,
-      "imageUrl": "https://acnhapi.com/v1/images/fish/32",
-      "id": 3
-    }
+
   ],
   "fishTypes": [
     {
